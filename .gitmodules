@@ -1,0 +1,15 @@
+[submodule "MexMemoryInterfacing"]
+	path = MexMemoryInterfacing
+	url = https://github.com/maharjun/MexMemoryInterfacing.git
+[submodule "RandomNumGen"]
+	path = RandomNumGen
+	url = https://github.com/maharjun/RandomNumGen.git
+[submodule "Polychronization"]
+	path = Polychronization
+	url = https://github.com/maharjun/Polychronization.git
+[submodule "PolychronousGroupFind"]
+	path = PolychronousGroupFind
+	url = https://github.com/maharjun/PolychronousGroupFind.git
+[submodule "WorkingMemory"]
+	path = WorkingMemory
+	url = https://github.com/maharjun/WorkingMemory.git
