@@ -105,8 +105,9 @@ InputStruct.ST_STDP_MaxRelativeInc      = single(2.5);
 InputStruct.ST_STDP_EffectMaxCausal     = single(0.1);
 InputStruct.ST_STDP_EffectMaxAntiCausal = single(0.12);
 
+InputStruct.W0                          = single(0);
+
 InputStruct.Iext.IExtAmplitude = single(30);
-InputStruct.Iext.W0            = single(0.1);
 InputStruct.Iext.AvgRandSpikeFreq = single(0.3);
 InputStruct.Iext.MajorTimePeriod = uint32(15000);
 InputStruct.Iext.MajorOnTime     = uint32(1000);
@@ -126,6 +127,8 @@ InputStruct.OutputFile = 'SimResults1000DebugSpikeListfrom5Hours.mat';
 OutputOptions               = {'Weight','ST_STDP_RelativeInc', 'Final', 'Initial'};
 InputStruct.StorageStepSize = int32(4000);
 InputStruct.OutputControl   = strjoin(OutputOptions);
+% save('..\WorkingMemory\TimeDelNetSim\Data\InputData.mat', 'InputStruct');
+
 [OutputVarsSpikeListCurrFSF, StateVarsSpikeListCurrFSF, FinalStateSpikeListCurrFSF, InputStateSpikeListCurrFSF] = TimeDelNetSim_WorkingMemory(InputStruct);
 
 clear functions;
