@@ -1,6 +1,7 @@
 rmpath('..\..\x64\Debug_Lib');
 addpath('..\WorkingMemory\TimeDelNetSim\x64\Release_Lib\');
 addpath('..\WorkingMemory\TimeDelNetSim\MatlabSource\');
+addpath('..\MexMemoryInterfacing\MatlabSource\');
 % addpath('export_fig-master');
 
 %%
@@ -117,28 +118,32 @@ InputStruct.Iext.NoOfNeurons     = uint32(60);
 InputStruct.InitialState.Weight(InputStruct.NEnd > 800) = 6;
 InputStruct.OutputFile = 'SimResults1000DebugSpikeListfrom5Hours.mat';
 
-% % Get SpikeList
-% OutputOptions               = {'SpikeList', 'Final', 'Initial'};
-% InputStruct.StorageStepSize = int32(0);
-% InputStruct.OutputControl   = strjoin(OutputOptions);
-% [OutputVarsSpikeListCurr, StateVarsSpikeListCurr, FinalStateSpikeListCurr, InputStateSpikeListCurr] = TimeDelNetSim_WorkingMemory(InputStruct);
-
-% Get Full State every 3 secs
-OutputOptions               = {'Weight','ST_STDP_RelativeInc', 'Final', 'Initial'};
-InputStruct.StorageStepSize = int32(4000);
+% Get Full State every 1 secs
+OutputOptions               = {'FSF', 'SpikeList', 'Final', 'Initial'};
+InputStruct.StorageStepSize = int32(1000);
 InputStruct.OutputControl   = strjoin(OutputOptions);
 % save('..\WorkingMemory\TimeDelNetSim\Data\InputData.mat', 'InputStruct');
 
 [OutputVarsSpikeListCurrFSF, StateVarsSpikeListCurrFSF, FinalStateSpikeListCurrFSF, InputStateSpikeListCurrFSF] = TimeDelNetSim_WorkingMemory(InputStruct);
 
 clear functions;
+%% Getting Detailed SubSimulation
+
+OutputOptions = {'Iin'};
+InputStruct = InputStateSpikeListCurrFSF;
+InputStruct.InitialState = getSingleState(StateVarsSpikeListCurrFSF, 1000*18663);
+InputStruct.NoOfms          = int32(1000);
+InputStruct.StorageStepSize = int32(0);
+InputStruct.StatusDisplayInterval = int32(3000);
+InputStruct.OutputControl = strjoin(OutputOptions);
+[OutputVarsDetailed, StateVarsDetailed, FinalStateDetailed, InputStateDetailed] = TimeDelNetSim_WorkingMemory(InputStruct);
 
 %% Plotting SpikeList
-BegTime = (5*60)*60 + 510;
-EndTime = (5*60)*60 + 530;
+BegTime = double(FinalStateSparse.Time)/1000 + 660;
+EndTime = double(FinalStateSparse.Time)/1000 + 690;% + 25;
 
 figure;
-[GenerationTimeVect, SpikeSynIndVect] = ParseSpikeList(BegTime, EndTime, InputStruct, StateVarsSpikeListCurr.Time, OutputVarsSpikeListCurr.SpikeList);
+[GenerationTimeVect, SpikeSynIndVect] = ParseSpikeList(BegTime, EndTime, InputStruct, OutputVarsSpikeListCurrFSF.SpikeList);
 plot(GenerationTimeVect - BegTime*1000*double(InputStruct.onemsbyTstep), double(InputStruct.NStart(SpikeSynIndVect)), '.', 'MarkerSize', 1);
 % PlotSpikePropagation(InputStruct, GenerationTimeVect, SpikeSynIndVect);
 
@@ -146,7 +151,7 @@ plot(GenerationTimeVect - BegTime*1000*double(InputStruct.onemsbyTstep), double(
 %  Tilt the screen for best effect
 
 HistMovie = VideoWriter('WeightHistMovie.avi');
-HistMovie.FrameRate = 2;
+HistMovie.FrameRate = 4;
 open(HistMovie);
 currfig = figure;
 for i = 1:length(StateVarsSpikeListCurrFSF.Time)
@@ -190,9 +195,10 @@ addpath('..\PolychronousGroupFind\PolychronousGroupFind\x64\Release_Lib\');
 % MaxLengthThreshold;
 
 InputStruct = InputStateSparse;
-InputStruct.InitialState = <appropriate state>;
-InputStruct.MinWeightSyn = single(7.8);
-InputStruct.MinLengthThreshold = int32(5);
+InputStruct.InitialState = FinalStateSparse;
+InputStruct.InitialState.Weight = getEffectiveWeights(InputStruct.InitialState.Weight, InputStruct.InitialState.ST_STDP_RelativeInc);
+InputStruct.MinWeightSyn = single(8);
+InputStruct.MinLengthThreshold = int32(4);
 
 PNGList = PolychronousGroupFind(InputStruct);
 rmpath('..\PolychronousGroupFind\PolychronousGroupFind\x64\Release_Lib\');

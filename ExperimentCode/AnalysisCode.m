@@ -34,3 +34,17 @@ InputStruct.StatusDisplayInterval = int32(2000);
 % save('../Data/InputData.mat', 'InputStruct');
 
 [OutputVarsDetailed, StateVarsDetailed, FinalStateDetailed, InputStateDetailed] = TimeDelNetSim(InputStruct);
+%% Compiling binarysearch
+cd ..\PolychronousGroupFind\PolychronousGroupFind\MatlabSource
+mex binarySearch.c
+cd ..\..\..\ExperimentCode\
+%% Code to display PNG's
+addpath ..\PolychronousGroupFind\PolychronousGroupFind\MatlabSource
+
+SinglePNG = GetPNG(PNGList2FlatCellArray(PNGList), 10);
+SinglePNGWOInhib = GetPNGWOInhib(SinglePNG, 800);
+
+SinglePNGRelative = ConvertPNGtoRelative(SinglePNG, InputStruct.NStart, InputStruct.Delay);
+DisplayPNG(SinglePNGRelative);
+
+rmpath ..\PolychronousGroupFind\PolychronousGroupFind\MatlabSource
