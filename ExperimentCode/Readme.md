@@ -38,7 +38,7 @@ Index
 Experiments
 -----------
 
-### Experiment 1 ###
+### Experiment 1 - Basic Working Mem Experiment (Unstable) ###
 
   #### Procedure ####
 
@@ -76,7 +76,7 @@ Experiments
     
   7. Observe spike behaviour.
 
-### Experiment 2 ###
+### Experiment 2 - Playing with ST_STDP_EffectDecay ###
 
   #### Procedure ####
 
@@ -100,7 +100,7 @@ Experiments
   3. Plot Histogram video (CAP)
   4. Opbserve spike train.
   
-### Experiment 3 ###
+### Experiment 3 - Extended Input Time and Low ST-STDP amplitude (Stable) ###
 
   #### Procedure #####
   
@@ -122,7 +122,7 @@ Experiments
         InputStruct.Iext.MinorTimePeriod        = uint32(500);
         InputStruct.Iext.NoOfNeurons            = uint32(45);
 
-### Experiment 4 ###
+### Experiment 4 - Maximum Synaptic Weight = 9 (Stable--)###
 
   #### Procedure ####
   
@@ -169,7 +169,7 @@ Experiments
      work to insanity. This is because it relies on the same 
      dynamics as all the previous cases.
      
-### Experiment 5 ###
+### Experiment 5 - Maximun Input Current Clipping (Stable--) ###
 
   #### Procedure ####
   
@@ -216,7 +216,7 @@ Experiments
        
   #### Observations ####
   
-  * The addition of the IinMax does not seem to resolve the issue
+  * The addition of the IinMax DOES NOT seem to RESOLVE the issue
     of instability. The reason is that a current level of upto 20
     seems to allow for instant spiking. and given a good enough 
     number of synapses of high weight, the network still becomes
@@ -229,3 +229,27 @@ Experiments
     
         InputStruct.IinMax = 15
     
+### Experiment 6 - Performing Incoming Weight Normalization ###
+  
+  #### Description ####
+  
+  In this case, 
+  
+  #### Procedure ####
+  
+### To Do: ###
+
+Formalize a basic heuristic measure of the expected activity of a neuron.
+
+Now, (or without) formulate a heuristic measure of expected network burst 
+tendency 
+
+  - W/O involving PNG's (just histogram)
+  - involving PNG's
+
+Try studying the stability of networks with different statistics of
+weights to understand stability.
+
+perform basic calculus to understand the change in weights under non-
+linear normalization
+
