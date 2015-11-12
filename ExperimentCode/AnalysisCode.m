@@ -58,7 +58,7 @@ IncExcExcSyns = IncExcSyns(1:800);
 
 RelevantState = getSingleState(StateVarsSpikeListCurrFSF, (5*60*60 + 30)*1000);
 
-EffWeights = getEffectiveWeights(RelevantState.Weight, RelevantState.ST_STDP_RelativeInc);
+EffWeights = getEffectiveWeights(RelevantState.Weight, InputStateSpikeListCurrFSF);
 IncExcEffWeights = cellfun(@(x) EffWeights(x), IncExcExcSyns, 'UniformOutput', false);
 TotalIncExcEffWeights = cellfun(@sum, IncExcEffWeights);
 
@@ -68,7 +68,7 @@ TotalIncExcEffWeights = cellfun(@sum, IncExcEffWeights);
 % and compiled.
 
 InputStruct = InputStateSparse;
-InputStruct.InitialState = FinalStateSparse; % getSingleState(StateVarsSpikeListCurrFSF, (5*60*60 + 2)*1000);
+InputStruct.InitialState = getSingleState(StateVarsSpikeListCurrFSF, (5*60*60 + 76)*1000);
 
 % Disable all forms of STDP, resetting WeightDeriv
 % to ensure constancy of weight
@@ -82,11 +82,11 @@ if isfield(InputStruct.InitialState, 'WeightDeriv')
 	InputStruct.InitialState.WeightDeriv(:) = 0;
 end
 
-InputStruct.NoOfms = int32(200000);
+InputStruct.NoOfms = int32(500000);
 
-% Get Full State every 1 secs
+% Get Full State every 2 secs
 OutputOptions               = {'FSF','PropSpikeList', 'GenSpikeList', 'Final', 'Initial'};
-InputStruct.StorageStepSize = int32(1000);
+InputStruct.StorageStepSize = int32(2000);
 InputStruct.OutputControl   = strjoin(OutputOptions);
 % save('..\WorkingMemory\TimeDelNetSim\Data\InputData.mat', 'InputStruct');
 
@@ -95,7 +95,7 @@ InputStruct.OutputControl   = strjoin(OutputOptions);
 InputStruct = InputStateSpikeListActivity;
 InputStruct.InitialState = getSingleState(StateVarsSpikeListActivity, (5*60*60 + 223)*1000);
 
-% Get Detailed Simulation for 1 ms
+% Get Detailed Simulation for 1 s
 OutputOptions               = {'V-Iin-Itot','PropSpikeList', 'GenSpikeList', 'Final', 'Initial'};
 InputStruct.NoOfms          = int32(1000);
 InputStruct.StorageStepSize = int32(0);
@@ -105,8 +105,8 @@ InputStruct.OutputControl   = strjoin(OutputOptions);
 [OutputVarsSpikeListActvDetailed, StateVarsSpikeListActvDetailed, FinalStateSpikeListActvDetailed, InputStateSpikeListActvDetailed] = TimeDelNetSim_WorkingMemory(InputStruct);
 
 %% Plotting Prop SpikeList
-BegTime = double(FinalStateSparse.Time)/1000 + 100;
-EndTime = double(FinalStateSparse.Time)/1000 + 100 + 10;
+BegTime = double(FinalStateSparse.Time)/1000 + 76;
+EndTime = double(FinalStateSparse.Time)/1000 + 76 + 10;
 
 figure;
 [GenerationTimeVect, SpikeSynIndVect] = ParseSpikeList(BegTime, EndTime, InputStruct, OutputVarsSpikeListActivity.PropSpikeList);
@@ -114,8 +114,8 @@ plot(GenerationTimeVect - BegTime*1000*double(InputStruct.onemsbyTstep), double(
 % PlotSpikePropagation(InputStruct, GenerationTimeVect, SpikeSynIndVect);
 
 %% Plotting Gen SpikeList
-BegTime = double(FinalStateSparse.Time)/1000 + 2;
-EndTime = double(FinalStateSparse.Time)/1000 + 2 + 200;
+BegTime = double(FinalStateSparse.Time)/1000 + 76;
+EndTime = double(FinalStateSparse.Time)/1000 + 76 + 500;
 
 TimeGen         = OutputVarsSpikeListActivity.GenSpikeList.TimeGen;
 SpikeNeuronInds = FlatCellArray([], OutputVarsSpikeListActivity.GenSpikeList.SpikeNeuronInds);
@@ -133,7 +133,7 @@ plot(PlotTimeVect - BegTime*1000*double(InputStruct.onemsbyTstep), double(PlotNe
 % PlotSpikePropagation(InputStruct, GenerationTimeVect, SpikeSynIndVect);
 
 clear A TimeGen SpikeNeuronInds
-%% Calculating Probability of Spiking for the Neurons
+%% Calculating Spiking Activity Frequency
 
 NoOfSpikeInstants = accumarray(PlotNeuronVect, ones(length(PlotNeuronVect), 1), [N 1]);
 figure; plot(1:1000, NoOfSpikeInstants/(EndTimeIndex - BegTimeIndex + 1)*1000);
