@@ -229,3 +229,40 @@ Experiments
     
         InputStruct.IinMax = 15
     
+### Experiment 6 - STDP Effectiveness Testing ###
+
+  #### Description ####
+  
+  This experiment is to ascertain the effectiveness of STDP to 
+  generate Polychronous Neural Groups.
+  
+  #### Procedure ####
+  
+  1. Checkout the WorkingMem/Standard-ST-STDP/Basic-Algo branch
+     of the WorkingMemory repository.
+     
+  2. Ensure that the submodule Polychronization and PolychronousGroupFind 
+     are updated.
+     
+  3. Recompile Code (SetupExperiment.ps1).
+     
+  4. Use the code in WorkingMemoryExp.m to generate the sparse 
+     Network after STDP
+     
+  5. Read the Data Generated
+     
+  6. Use the code in STDPEffectivenessExp.m to jumble the weights 
+     and calculate PNG's
+  
+  #### Observations ####
+  
+  * There is a clear increase in the number of PNG's in the network 
+    combination arrived at via STDP as opposed to a random combination.
+  
+  * One particular observation: (making the randomization for loop 1:8,
+    finding all PNG's with length >= 5)
+    
+    PNG's with randomized combination     = 598
+    PNG's with STDP resultant combination = 8738
+  
+  * The increase ranges from 7-15 fold.
