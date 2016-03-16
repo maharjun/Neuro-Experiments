@@ -1,0 +1,6 @@
+The only relevance of this file is its name. the prescence of this file 
+indicates that the current directory is the top level directory. the reason 
+an environment variable is less feasible is that I might start different 
+processes in different shells and I do not want to set a global environment 
+variable. for now, any application that wishes to use a global environment 
+variable, the recommended name is NEURO_EXPERIMENT_TOP_DIR. 
