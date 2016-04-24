@@ -1,0 +1,20 @@
+FolderID         : 0
+ParentFolderID   : 1
+FolderType       : IntermediateDir
+FolderTitle      : Top Level Folder
+FolderDescription: |
+  This is the top level folder of the Experiment repository and, as it is an
+  IntermediateDir, it cannot contain any experiments. In addition there are the 
+  following subdirectories that have special meaning:
+  
+  1.  SubModulesDir - 
+      
+      This directory contains all the submodules that are possibly used in and 
+      around the various experiments.
+  
+  2.  RepoManagement -
+      
+      This is a submodule that is special in the sense that it is responsible
+      for all the functions involved in booking experiments, and in editing
+      their values
+      
