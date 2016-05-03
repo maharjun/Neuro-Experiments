@@ -1,4 +1,4 @@
-NumEntities: 4
+NumEntities: 8
 
 EntityData:
 
@@ -27,5 +27,33 @@ EntityData:
   ParentID: 1
   Type    : ExperimentDir
   Path    : WorkingMem-Exp
+
+####################################################################################################
+
+- ID      : 5
+  ParentID: 2
+  Type    : Experiment
+  Path    : LT-STDPOnlyMemory
+
+####################################################################################################
+
+- ID      : 6
+  ParentID: 2
+  Type    : Experiment
+  Path    : LT-STDPOnlyMemory
+
+####################################################################################################
+
+- ID      : 7
+  ParentID: 2
+  Type    : Experiment
+  Path    : LT-STDPOnlyMemory
+
+####################################################################################################
+
+- ID      : 8
+  ParentID: 2
+  Type    : Experiment
+  Path    : LT-STDPOnlyMemory
 
 ####################################################################################################
