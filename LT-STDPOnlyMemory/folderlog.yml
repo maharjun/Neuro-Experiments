@@ -1,7 +1,5 @@
 FolderID         : 2
 ParentFolderID   : 1
 FolderType       : ExperimentDir
-FolderTitle      : Long Term STDP Memory Experiments
+FolderTitle      : 
 FolderDescription: |-2
-  This directory contains the set of simulations that deal with the memory that
-  arises out of applying ONLY Long term STDP in the network.
