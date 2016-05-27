@@ -13,3 +13,6 @@
 [submodule "WorkingMemory"]
 	path = SubModulesDir/WorkingMemory
 	url = https://github.com/maharjun/WorkingMemory.git
+[submodule "GetAttractionBasin"]
+	path = SubModulesDir/GetAttractionBasin
+	url = https://www.github.com/maharjun/GetAttractionBasin
