@@ -13,6 +13,3 @@
 [submodule "WorkingMemory"]
 	path = SubModulesDir/WorkingMemory
 	url = https://github.com/maharjun/WorkingMemory.git
-[submodule "RepoManagement"]
-	path = RepoManagement
-	url = https://github.com/maharjun/Experiment-Repo-Manage
