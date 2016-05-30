@@ -3,8 +3,25 @@ NumberofEntries: 4
 ExpEntries: 
 
 - ID         : 10
-  Title      : 
+  Title      : Initial Experiment Calculating Attraction Basins
   Description: |-2
+    ##  Description
+    
+    This is an experiment calculating Attraction Basins for two neuron models:
+    
+    1.  The Izhikevich Neuron Model as simulated by my network (half step simul-
+        ation)
+    2.  The Simple (Single Step) Izhikevich Neuron Model.
+    
+    ##  Procedure
+    
+    Run ./IzhikSetup.py and ./SimpleIzhikSetup.py (need to have CMake 3.5 and 
+    python 3.5).
+    
+    Then run the script IzhikNeuronAttBasin.m with the working directory as
+    exp_10_dir. Two Plots are generated giving the Attractor Basin in which the
+    colors are representative of the distance to the attractor basin (i.e. the
+    number of steps taken from that steep to reach the attractor states)
 
 ## End of Experiment 10 ############################################################################
 
