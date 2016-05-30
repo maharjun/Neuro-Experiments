@@ -10,11 +10,6 @@ DynSysParameters.d = single(8);
 DynSysParameters.GridXSpec = single([-5; 0.05; 35]);
 DynSysParameters.GridYSpec = single([-80; 0.05; 30]);
 
-DynSysParameters.onemsbyTstep = uint32(2);
-DynSysParameters.InitialPointSet.ClassName = 'PointVector';
-DynSysParameters.InitialPointSet.X = single(DynSysParameters.GridXSpec(1):DynSysParameters.GridXSpec(2):DynSysParameters.GridXSpec(3));
-DynSysParameters.InitialPointSet.Y = single(30*ones(size(DynSysParameters.InitialPointSet.X)));
-
 [IzhikFullBasinBoundary, IzhikBasinPartitionBoundaries] = GetAttBasin_IzhikevichSpiking(DynSysParameters);
 [SimpIzhikFullBasinBoundary, SimpIzhikBasinPartitionBoundaries] = GetAttBasin_SimpleIzhikevichSpiking(DynSysParameters);
 

@@ -19,9 +19,6 @@
 %   GridYSpec = [GridYBegin, GridYStep, GridYEnd]
 %   
 %   onemsbyTstep - uint32_t - scalar
-%   
-%   InitialPointSet - should be a valid 'SinglePoint Vector' struct represent-
-%                     ing the region of points from which to start searching.
 % 
 % The returned Boundaries are returned as UInt Point Vectors representing the 
 % edge boundaries of the full attraction basin and its partitions.
