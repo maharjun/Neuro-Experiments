@@ -91,7 +91,7 @@ public:
 		this->timeStep = 1.0f / onemsbyTstep;
 
 		// Calculate the Grid Y Coordinate for 30.0V
-		auto GridY30V = this->Transform.toGridPoint(SinglePoint(0, 30.0f)).y;
+		auto GridY30V = this->Transform.toGridCoords(SinglePoint(0, 30.0f)).y;
 		GridY30V = (GridY30V >= YGridMax)? YGridMax : GridY30V;
 		for(uint32_t i=0; i < XGridMax; ++i) {
 			Point gridPoint(i, uint32_t(GridY30V+0.5f));
