@@ -13,7 +13,7 @@ DynSysParameters.GridYSpec = single([-100; 0.05; 30]);
 DynSysParameters.onemsbyTstep = uint32(2);
 
 [IzhikFullBasinBoundary, IzhikBasinPartitionBoundaries] = GetAttBasin_IzhikevichSilent(DynSysParameters);
-% [SimpIzhikFullBasinBoundary, SimpIzhikBasinPartitionBoundaries] = GetAttBasin_SimpleIzhikevichSpiking(DynSysParameters);
+[SimpIzhikFullBasinBoundary, SimpIzhikBasinPartitionBoundaries] = GetAttBasin_SimpleIzhikevichSilent(DynSysParameters);
 
 %% Plot
 IzhikPartitionFig = figure();
@@ -29,13 +29,13 @@ hold off;
 xlim([GridXSpec(1), GridXSpec(3)])
 ylim([GridYSpec(1), GridYSpec(3)])
 
-% SimpIzhikPartitionFig = figure();
-% colormap(SimpIzhikPartitionFig, copper(length(SimpIzhikBasinPartitionBoundaries)));
-% fill(double(SimpIzhikFullBasinBoundary.X)*GridXSpec(2) + GridXSpec(1), double(SimpIzhikFullBasinBoundary.Y)*GridYSpec(2) + GridYSpec(1), 'b', 'LineStyle', 'none');
-% hold on;
-% for i = 1:length(SimpIzhikBasinPartitionBoundaries)
-% 	fill(double(SimpIzhikBasinPartitionBoundaries{i}.X)*GridXSpec(2) + GridXSpec(1), double(SimpIzhikBasinPartitionBoundaries{i}.Y)*GridYSpec(2) + GridYSpec(1), i, 'LineStyle', 'none');
-% end
-% hold off;
-% xlim([GridXSpec(1), GridXSpec(3)])
-% ylim([GridYSpec(1), GridYSpec(3)])
+SimpIzhikPartitionFig = figure();
+colormap(SimpIzhikPartitionFig, copper(length(SimpIzhikBasinPartitionBoundaries)));
+fill(double(SimpIzhikFullBasinBoundary.X)*GridXSpec(2) + GridXSpec(1), double(SimpIzhikFullBasinBoundary.Y)*GridYSpec(2) + GridYSpec(1), 'b', 'LineStyle', 'none');
+hold on;
+for i = 1:length(SimpIzhikBasinPartitionBoundaries)
+	fill(double(SimpIzhikBasinPartitionBoundaries{i}.X)*GridXSpec(2) + GridXSpec(1), double(SimpIzhikBasinPartitionBoundaries{i}.Y)*GridYSpec(2) + GridYSpec(1), i, 'LineStyle', 'none');
+end
+hold off;
+xlim([GridXSpec(1), GridXSpec(3)])
+ylim([GridYSpec(1), GridYSpec(3)])

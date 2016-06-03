@@ -10,12 +10,12 @@
 #include "stdint.h"
 #include <functional>
 
-class IzhikevichSilent {
+class SimpleIzhikevichSilent {
 
 };
 
 template<>
-class DynamicalSystem<IzhikevichSilent> {
+class DynamicalSystem<SimpleIzhikevichSilent> {
 private:
 	GridTransform<float> PrivateTransform;
 	PointSet PrivateInitialPointSet;
@@ -102,7 +102,7 @@ public:
 		}
 		else {
 			WriteException(
-				DynamicalSystem<IzhikevichSilent>::Exceptions::INVALID_PARAMETERS,
+				DynamicalSystem<SimpleIzhikevichSilent>::Exceptions::INVALID_PARAMETERS,
 			    "There appears to be no equilibrium for the given a,b specified"
 			);
 		}
@@ -117,7 +117,7 @@ public:
 		}
 		else {
 			WriteException(
-				DynamicalSystem<IzhikevichSilent>::Exceptions::INVALID_PARAMETERS,
+				DynamicalSystem<SimpleIzhikevichSilent>::Exceptions::INVALID_PARAMETERS,
 			    "The derived Equilibrium Point (%f, %f) appears to be outside the range XRange(%f, %f) and YRange(%f, %f)",
 				this->ActualStableEquilibriumPoint.x, this->ActualStableEquilibriumPoint.y,
 				GridXSpec[0], GridXSpec[2],
