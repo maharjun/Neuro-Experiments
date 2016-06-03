@@ -38,8 +38,15 @@ ExpEntries:
 ## End of Experiment 11 ############################################################################
 
 - ID         : 12
-  Title      : 
+  Title      : Spiking + Stable Combined Att Basin Plot
   Description: |-2
+    This experiment plots the combined Attraction basin of both the spiking and
+    stable state of the RS Izhikevich Neuron.
+    
+    ## Procedure
+    
+    1.  Run All the Python Setup Files in succession
+    2.  Run the MATLAB Script
 
 ## End of Experiment 12 ############################################################################
 
