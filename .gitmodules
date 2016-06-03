@@ -16,3 +16,6 @@
 [submodule "GetAttractionBasin"]
 	path = SubModulesDir/GetAttractionBasin
 	url = https://www.github.com/maharjun/GetAttractionBasin
+[submodule "CMakeModules"]
+	path = SubModulesDir/CMakeModules
+	url = https://www.github.com/maharjun/CMakeModules
