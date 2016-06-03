@@ -1,10 +1,10 @@
 #!/usr/bin/env python3.5
 
 import sys
-import os
 from RepoManagement.BasicUtils import changedDir, getFrameDir
 from RepoManagement import getRootDirectory
 from RepoManagement import SubModuleProcessing as SMP
+from git import Repo
 
 # get Current Script Directory
 CurrentScriptDir = getFrameDir()
@@ -13,35 +13,13 @@ CurrentScriptDir = getFrameDir()
 SMP.UpdateSubModules(CurrentScriptDir)
 
 # Retrieve Relevant Directories
-ExperimentRootDir = getRootDirectory(CurrentScriptDir)
-SubModulesDir = os.path.join(ExperimentRootDir, 'SubModulesDir')
-GetAttractionBasinDir = os.path.join(SubModulesDir, 'GetAttractionBasin')
+GetAttractionBasinDir = Repo(getRootDirectory(CurrentScriptDir)).submodule('GetAttractionBasin').abspath
 
-# Initialize Directories relevant to CMake
-CMakeModulesDir = os.path.join(SubModulesDir, 'CMakeModules')
-CurrentSourceDir = GetAttractionBasinDir
-BuildDir = os.path.join(CurrentScriptDir, 'build')
+# Include GetAttractionBasinDir in Paths
+sys.path.insert(0, GetAttractionBasinDir)
 
-# add CMakeModulesDir to sys path and get default platform
-sys.path.insert(0, CMakeModulesDir)
-from CMakePyHelper import getDefaultPlatformGen
-from CMakePyHelper import CMakeGenCall, CMakeBuildCall
+# import SetupDynSys and call SetupDynSys
+from SetupDynSystem import SetupDynSystem
 
-DefaultGenerator = getDefaultPlatformGen()
-
-# Initialize Path to the HPP file correspondingto the dynamic system.
-DynSystemHPPPath = os.path.join(CurrentScriptDir, '../NeuronDynSys/SimpleIzhikevichSpiking.hpp')
-if not os.path.isdir(BuildDir):
-    os.mkdir(BuildDir)
-
-with changedDir(BuildDir):
-    isCMakeGenSuccess = CMakeGenCall(CurrentSourceDir,
-                                     Generator=DefaultGenerator,
-                                     BuildConfig='Release',
-                                     Silent=True,
-                                     DYN_SYSTEM_HPP_PATH=DynSystemHPPPath)
-
-if isCMakeGenSuccess:
-    CMakeBuildSuccess = CMakeBuildCall(BuildDir,
-                                       Target='install',
-                                       BuildConfig='Release')
+with changedDir(CurrentScriptDir):
+    SetupDynSystem('../NeuronDynSys/SimpleIzhikevichSpiking.hpp')
