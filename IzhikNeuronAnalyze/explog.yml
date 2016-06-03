@@ -26,8 +26,14 @@ ExpEntries:
 ## End of Experiment 10 ############################################################################
 
 - ID         : 11
-  Title      : 
+  Title      : Steady State Attractor Basin
   Description: |-2
+    This experiment calculates and plots the steady state attractor's basin of
+    attraction.
+    
+    ##  Procedure:
+    
+    Run the Python Setup scripts and the matlab script IzhikNeuronAttBasin.m
 
 ## End of Experiment 11 ############################################################################
 
