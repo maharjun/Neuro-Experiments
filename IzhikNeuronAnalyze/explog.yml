@@ -15,8 +15,8 @@ ExpEntries:
     
     ##  Procedure
     
-    Run ./IzhikSetup.py and ./SimpleIzhikSetup.py (need to have CMake 3.5 and 
-    python 3.5).
+    cd into exp_10_dir, run ./IzhikSetup.py and ./SimpleIzhikSetup.py (need to
+    have CMake 3.5 and python 3.5).
     
     Then run the script IzhikNeuronAttBasin.m with the working directory as
     exp_10_dir. Two Plots are generated giving the Attractor Basin in which the
@@ -33,7 +33,8 @@ ExpEntries:
     
     ##  Procedure:
     
-    Run the Python Setup scripts and the matlab script IzhikNeuronAttBasin.m
+    With Working Directory as exp_11_dir, run the Python Setup scripts and the 
+    matlab script IzhikNeuronAttBasin.m
 
 ## End of Experiment 11 ############################################################################
 
@@ -45,8 +46,9 @@ ExpEntries:
     
     ## Procedure
     
-    1.  Run All the Python Setup Files in succession
-    2.  Run the MATLAB Script
+    1.  Change working dir to exp_12_dir
+    2.  Run All the Python Setup Files in succession
+    3.  Run the MATLAB Script
 
 ## End of Experiment 12 ############################################################################
 
