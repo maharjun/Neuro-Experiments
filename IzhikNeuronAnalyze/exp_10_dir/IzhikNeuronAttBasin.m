@@ -3,7 +3,7 @@ addpath build/install;
 
 %%
 DynSysParameters.a = single(0.02);
-DynSysParameters.b = single(0.25);
+DynSysParameters.b = single(0.2);
 DynSysParameters.c = single(-65);
 DynSysParameters.d = single(8);
 

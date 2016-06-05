@@ -21,7 +21,7 @@ DynSysParameters.onemsbyTstep = uint32(2);
 %% Plot
 IzhikFig = figure();
 ColorCubeScheme = colorcube(length(IzhikSilentBPB));
-CopperScheme = colorcube(length(IzhikSpikingBPB));
+CopperScheme = copper(length(IzhikSpikingBPB));
 GridXSpec = DynSysParameters.GridXSpec; % [0 1 1];
 GridYSpec = DynSysParameters.GridYSpec; % [0 1 1];
 hold on;
@@ -37,7 +37,7 @@ ylim([GridYSpec(1), GridYSpec(3)])
 
 SimpIzhikPartitionFig = figure();
 ColorCubeScheme = colorcube(length(SimpleIzhikSilentBPB));
-CopperScheme = colorcube(length(SimpleIzhikSpikingBPB));
+CopperScheme = copper(length(SimpleIzhikSpikingBPB));
 hold on;
 for i = 1:length(SimpleIzhikSpikingBPB)
 	fill(double(SimpleIzhikSpikingBPB{i}.X)*GridXSpec(2) + GridXSpec(1), double(SimpleIzhikSpikingBPB{i}.Y)*GridYSpec(2) + GridYSpec(1), CopperScheme(i,:), 'LineStyle', 'none');
