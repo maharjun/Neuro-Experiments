@@ -53,8 +53,36 @@ ExpEntries:
 ## End of Experiment 12 ############################################################################
 
 - ID         : 13
-  Title      : 
+  Title      : Getting the Distribution of U-V under Poisson Noise
   Description: |-2
+    ##  Objective
+    
+    To observe the distribution of the phase parameters in a group of neurons stim-
+    ulated by poisson noise.
+    
+    ##  Procedure
+    
+    The given experiment requires the following steps:
+    
+    1.  Run WorkingMemSetup.py
+    2.  Run Generate5HrsSimData.m to generate the simulation data of 5 hours invol-
+        ving long term stdp with a weight cap of 8 (stimulated with 1 Hz Poisson Noise)
+    3.  Run GetUVSpread.m to perform simulation on the above generated network and 
+        plot the u-v histogram. One can adjust Factor (this is basically the para-
+        meter onemsbyTstep) to simulate using different resolutions to see the im-
+        pact. One may also play with the stimulation frequency.
+    
+    ##  Default Parameters
+    
+        onemsbyTstep = 1
+        stimulation frequency = 0.3 Hz
+    
+    ##  Observations:
+    
+    1.  Maximum probability centers around the stable equilibrium indicating that 
+        neurons do not fire most of the time.
+    2.  With Increase in frequency, we observe a spread in the histogram, however, 
+        it still appears to be concentrated in the curve that represents the line leading into the stable equilibrium.
 
 ## End of Experiment 13 ############################################################################
 
