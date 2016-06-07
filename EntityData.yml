@@ -1,4 +1,4 @@
-NumEntities: 13
+NumEntities: 16
 
 EntityData:
 
@@ -87,6 +87,27 @@ EntityData:
 ####################################################################################################
 
 - ID      : 13
+  ParentID: 9
+  Type    : Experiment
+  Path    : IzhikNeuronAnalyze
+
+####################################################################################################
+
+- ID      : 14
+  ParentID: 9
+  Type    : Experiment
+  Path    : IzhikNeuronAnalyze
+
+####################################################################################################
+
+- ID      : 15
+  ParentID: 9
+  Type    : Experiment
+  Path    : IzhikNeuronAnalyze
+
+####################################################################################################
+
+- ID      : 16
   ParentID: 9
   Type    : Experiment
   Path    : IzhikNeuronAnalyze
