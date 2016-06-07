@@ -53,6 +53,7 @@ Temporary Items
 /**/*.m~
 /**/*.mex*
 /**/build/*
+/**/*_build/*
 
 # ignore all ~version of word documents
 *~*.*
