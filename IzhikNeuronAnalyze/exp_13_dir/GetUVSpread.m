@@ -34,11 +34,14 @@ end
 NewQIndex = Factor*CurrentQIndex;
 NewSpikeQueue = FlatCellArray.FlattenCellArray(NewSpikeQueue, 'int32');
 
+InputStruct.Iext.IRandAmplitude = single(30);
 InputStruct.onemsbyTstep = int32(Factor);
 InputStruct.InitialState.SpikeQueue = NewSpikeQueue.Convert2Struct();
 InputStruct.InitialState.CurrentQIndex = int32(NewQIndex);
 InputStruct.StatusDisplayInterval = int32(InputStruct.StatusDisplayInterval*Factor);
 InputStruct.Iext.IRandAmplitude = InputStruct.Iext.IRandAmplitude*Factor;
+InputStruct.W0 = single(0);
+
 InputStruct.OutputControl = strjoin(OutputOptions);
 
 InputStruct.StorageStepSize = int32(0);
