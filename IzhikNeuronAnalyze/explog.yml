@@ -1,0 +1,105 @@
+ExpFolderID: 9
+NumberofEntries: 7
+ExpEntries: 
+
+- ID         : 10
+  Title      : Initial Experiment Calculating Attraction Basins
+  Description: |-2
+    ##  Description
+    
+    This is an experiment calculating Attraction Basins for two neuron models:
+    
+    1.  The Izhikevich Neuron Model as simulated by my network (half step simul-
+        ation)
+    2.  The Simple (Single Step) Izhikevich Neuron Model.
+    
+    ##  Procedure
+    
+    cd into exp_10_dir, run ./IzhikSetup.py and ./SimpleIzhikSetup.py (need to
+    have CMake 3.5 and python 3.5).
+    
+    Then run the script IzhikNeuronAttBasin.m with the working directory as
+    exp_10_dir. Two Plots are generated giving the Attractor Basin in which the
+    colors are representative of the distance to the attractor basin (i.e. the
+    number of steps taken from that steep to reach the attractor states)
+
+## End of Experiment 10 ############################################################################
+
+- ID         : 11
+  Title      : Steady State Attractor Basin
+  Description: |-2
+    This experiment calculates and plots the steady state attractor's basin of
+    attraction.
+    
+    ##  Procedure:
+    
+    With Working Directory as exp_11_dir, run the Python Setup scripts and the 
+    matlab script IzhikNeuronAttBasin.m
+
+## End of Experiment 11 ############################################################################
+
+- ID         : 12
+  Title      : Spiking + Stable Combined Att Basin Plot
+  Description: |-2
+    This experiment plots the combined Attraction basin of both the spiking and
+    stable state of the RS Izhikevich Neuron.
+    
+    ## Procedure
+    
+    1.  Change working dir to exp_12_dir
+    2.  Run All the Python Setup Files in succession
+    3.  Run the MATLAB Script
+
+## End of Experiment 12 ############################################################################
+
+- ID         : 13
+  Title      : Getting the Distribution of U-V under Poisson Noise
+  Description: |-2
+    ##  Objective
+    
+    To observe the distribution of the phase parameters in a group of neurons stim-
+    ulated by poisson noise.
+    
+    ##  Procedure
+    
+    The given experiment requires the following steps:
+    
+    1.  Run WorkingMemSetup.py
+    2.  Run Generate5HrsSimData.m to generate the simulation data of 5 hours invol-
+        ving long term stdp with a weight cap of 8 (stimulated with 1 Hz Poisson Noise)
+    3.  Run GetUVSpread.m to perform simulation on the above generated network and 
+        plot the u-v histogram. One can adjust Factor (this is basically the para-
+        meter onemsbyTstep) to simulate using different resolutions to see the im-
+        pact. One may also play with the stimulation frequency.
+    
+    ##  Default Parameters
+    
+        onemsbyTstep = 1
+        stimulation frequency = 0.3 Hz
+    
+    ##  Observations:
+    
+    1.  Maximum probability centers around the stable equilibrium indicating that 
+        neurons do not fire most of the time.
+    2.  With Increase in frequency, we observe a spread in the histogram, however, 
+        it still appears to be concentrated in the curve that represents the line leading into the stable equilibrium.
+
+## End of Experiment 13 ############################################################################
+
+- ID         : 14
+  Title      : 
+  Description: |-2
+
+## End of Experiment 14 ############################################################################
+
+- ID         : 15
+  Title      : 
+  Description: |-2
+
+## End of Experiment 15 ############################################################################
+
+- ID         : 16
+  Title      : 
+  Description: |-2
+
+## End of Experiment 16 ############################################################################

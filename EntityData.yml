@@ -1,4 +1,4 @@
-NumEntities: 8
+NumEntities: 16
 
 EntityData:
 
@@ -55,5 +55,61 @@ EntityData:
   ParentID: 2
   Type    : Experiment
   Path    : LT-STDPOnlyMemory
+
+####################################################################################################
+
+- ID      : 9
+  ParentID: 1
+  Type    : ExperimentDir
+  Path    : IzhikNeuronAnalyze
+
+####################################################################################################
+
+- ID      : 10
+  ParentID: 9
+  Type    : Experiment
+  Path    : IzhikNeuronAnalyze
+
+####################################################################################################
+
+- ID      : 11
+  ParentID: 9
+  Type    : Experiment
+  Path    : IzhikNeuronAnalyze
+
+####################################################################################################
+
+- ID      : 12
+  ParentID: 9
+  Type    : Experiment
+  Path    : IzhikNeuronAnalyze
+
+####################################################################################################
+
+- ID      : 13
+  ParentID: 9
+  Type    : Experiment
+  Path    : IzhikNeuronAnalyze
+
+####################################################################################################
+
+- ID      : 14
+  ParentID: 9
+  Type    : Experiment
+  Path    : IzhikNeuronAnalyze
+
+####################################################################################################
+
+- ID      : 15
+  ParentID: 9
+  Type    : Experiment
+  Path    : IzhikNeuronAnalyze
+
+####################################################################################################
+
+- ID      : 16
+  ParentID: 9
+  Type    : Experiment
+  Path    : IzhikNeuronAnalyze
 
 ####################################################################################################

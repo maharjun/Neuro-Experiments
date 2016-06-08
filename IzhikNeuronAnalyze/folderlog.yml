@@ -1,0 +1,10 @@
+FolderID         : 9
+ParentFolderID   : 1
+FolderType       : ExperimentDir
+FolderTitle      : Analysis of the Izhikevich Neuron
+FolderDescription: |-2
+  This folder contains experiments pertaining to the analysis of the dynamical
+  system corresponding to the Izhikevich neuron. The experiments here attempt to
+  quantify the spiking characteristic of the neuron in the prescence of various
+  currents so that we may achieve some understanding of discerning ability in the
+  neuron

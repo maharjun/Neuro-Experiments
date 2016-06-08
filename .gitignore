@@ -46,10 +46,14 @@ Temporary Items
 # video files,
 # MATLAB Autosave files
 # MATLAB mex compilations
+# build directories
 /**/*.avi
 /**/*.mp4
 /**/*.asv
+/**/*.m~
 /**/*.mex*
+/**/build/*
+/**/*_build/*
 
 # ignore all ~version of word documents
 *~*.*
