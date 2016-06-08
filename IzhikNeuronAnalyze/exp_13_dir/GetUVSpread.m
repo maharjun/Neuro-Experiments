@@ -1,5 +1,6 @@
 addpath ./TimeDelNetSim_build/install
-addpath(fullfile(ExpRepoTopDir, 'SubModulesDir', 'WorkingMemory', 'MexMemoryInterfacing', 'MatlabSource'))
+WorkingMemModulePath = deblank(fileread('./TimeDelNetSim_build/install/ModulePath.txt'));
+addpath(fullfile(WorkingMemModulePath, 'MexMemoryInterfacing', 'MatlabSource'))
 
 %% Read 5Hours Simulation Data
 load TimeDelNetSim_build/Data/5HrsSparseOutputData.mat

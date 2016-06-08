@@ -1,4 +1,5 @@
-addpath(fullfile(ExpRepoTopDir, 'SubModulesDir', 'WorkingMemory', 'TimeDelNetSim', 'MatlabSource'))
+WorkingMemModulePath = deblank(fileread('./TimeDelNetSim_build/install/ModulePath.txt'));
+addpath(fullfile(WorkingMemModulePath, 'TimeDelNetSim', 'MatlabSource'))
 
 %%
 rng('default');
