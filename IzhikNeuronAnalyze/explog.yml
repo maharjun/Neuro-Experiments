@@ -69,9 +69,12 @@ ExpEntries:
         ving long term stdp with a weight cap of 8 (stimulated with 1 Hz Poisson
         Noise)
     3.  Run GetUVSpread.m to perform simulation on the above generated network and
-        plot the u-v histogram. One can adjust Factor (this is basically the para-
-        meter onemsbyTstep) to simulate using different resolutions to see the im-
-        pact. One may also play with the stimulation frequency.
+        plot the u-v histogram.
+    
+         *  One can adjust Factor (this is basically the parameter onemsbyTstep)
+            to simulate using different resolutions to see the impact.
+         *  One may also play with the stimulation frequency. (This is more inter-
+            esting)
     
     ##  Default Parameters
     
@@ -84,7 +87,9 @@ ExpEntries:
         neurons do not fire most of the time.
     2.  With Increase in frequency, we observe a spread in the histogram, however,
         it still appears to be concentrated in the curve that represents the line
-        leading into the stable equilibrium.   
+        leading into the stable equilibrium.
+    3.  If we look at the propagation factor (i.e. Actual Spike Frequency / Random 
+        Spike Frequency) then we can observe that with increase in frequency it increases. This is expected as with higher frequency, the probability of PNG's getting activated increases quite rapidly.
 
 ## End of Experiment 13 ############################################################################
 
