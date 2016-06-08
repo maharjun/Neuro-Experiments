@@ -39,6 +39,7 @@ ExpEntries:
     
     ###   Simulation Parameters
     
+        InputStruct.onmsbyTstep           = int32(1)
         InputStruct.W0                    = single(0.3);
         InputStruct.Iext.AvgRandSpikeFreq = single(0.3);
         
@@ -170,7 +171,7 @@ ExpEntries:
         In this case, we observe a behavior similar to the previous case i.e. an
         increasing firing rate which culminates in a consistent pattern. However,
         we notice that the intensity of spiking in this case is significantly
-        mellowed down a a result of increased inhibition. The effects of this are
+        mellowed down as a result of increased inhibition. The effects of this are
         seen below
     
     2.  __From 100s to 200s -__
