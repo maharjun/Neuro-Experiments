@@ -22,6 +22,27 @@ ExpEntries:
     exp_10_dir. Two Plots are generated giving the Attractor Basin in which the
     colors are representative of the distance to the attractor basin (i.e. the
     number of steps taken from that steep to reach the attractor states)
+    
+    ##  Parameters
+    
+        Simulation TimeStep = 0.5
+        Simulation Grid Resolution (U) = 0.05
+        Simulation Grid Resolution (V) = 0.05
+        Simulation Grid Range (U) = [-25,35]
+        Simulation Grid Range (V) = [-100,30]
+    
+    ##  Observations
+    
+    We observe that there exists a bottom bound on U such that below this, for
+    ANY value of V (assumed to lie between -100->30V), the neuron spikes.
+    
+    ##  Inferences
+    
+    We infer that the earlier observed rebound spiking does really take place.
+    It can be seen by considering the case where V is held consistently at -100
+    for an extended period of time and then released. In such case, U will settle
+    at -20 and it can be quite clearly seen that the point (-20, -100) is a part
+    of the Basin of Attraction of the Spiking State.
 
 ## End of Experiment 10 ############################################################################
 
