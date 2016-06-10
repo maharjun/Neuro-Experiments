@@ -1,5 +1,7 @@
 FolderID         : 4
 ParentFolderID   : 1
 FolderType       : ExperimentDir
-FolderTitle      : 
+FolderTitle      : Working Mem related Experiments
 FolderDescription: |-2
+  This folder contains code and experiments relevant to the simulation of 
+  Working Memory using PNG's and Short Term STDP.
