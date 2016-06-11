@@ -1,5 +1,7 @@
 FolderID         : 2
 ParentFolderID   : 1
 FolderType       : ExperimentDir
-FolderTitle      : 
+FolderTitle      : Long Term STDP Memory Experiments
 FolderDescription: |-2
+  This folder contains experiments pertaining to memory storage as it arises 
+  from long term STDP.
