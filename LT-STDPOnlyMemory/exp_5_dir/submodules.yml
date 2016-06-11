@@ -1,0 +1,14 @@
+- SubModuleReference: 
+  - WorkingMemory
+  CommitSHA: '38e779a803f5fe763a28b544eb0e5dc93e71dee3'
+  SubSubModuleUpdate: yes
+
+- SubModuleReference: 
+  - ExportFig
+  CommitSHA: '2117a0d16b7df2b02a96f77c97fac8dcd5969173'
+  SubSubModuleUpdate: yes
+
+- SubModuleReference: 
+  - PolychronousGroupFind
+  CommitSHA: 'b5a8ee18975a5025648c382cf40cd4483ba45d18'
+  SubSubModuleUpdate: yes

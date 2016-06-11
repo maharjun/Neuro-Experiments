@@ -10,6 +10,11 @@ ExpEntries:
     ned below. This configuration is likely to be referred to in subsequent exper-
     iments.
     
+    ##  Procedure
+    
+    Run the ExperimentSetup.py setup file and then run MainSimulation.m. Save the 
+    plots if you feel like
+    
     ##  Experiment Setting
     
     ###   Network Configuration
@@ -25,7 +30,7 @@ ExpEntries:
         WorkingMemNetParams.InitInhWeight = -5;
         WorkingMemNetParams.InitExcWeight = 6;
         
-        WorkingMemNetParams.DelayRange    = 20;    
+        WorkingMemNetParams.DelayRange    = 20;
     
     The Meaning of the above parameters is below:
     
@@ -39,7 +44,7 @@ ExpEntries:
     
     ###   Simulation Parameters
     
-        InputStruct.onmsbyTstep           = int32(1)
+        InputStruct.onemsbyTstep           = int32(1)
         InputStruct.W0                    = single(0.3);
         InputStruct.Iext.AvgRandSpikeFreq = single(0.3);
         
