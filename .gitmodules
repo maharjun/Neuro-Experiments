@@ -19,3 +19,6 @@
 [submodule "CMakeModules"]
 	path = SubModulesDir/CMakeModules
 	url = https://www.github.com/maharjun/CMakeModules
+[submodule "ExportFig"]
+	path = SubModulesDir/ExportFig
+	url = https://github.com/altmany/export_fig
