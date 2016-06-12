@@ -53,8 +53,48 @@ ExpEntries:
 ## End of Experiment 17 ############################################################################
 
 - ID         : 18
-  Title      : 
+  Title      : Analyze unstable dynamics by Freezing Weights
   Description: |-2
+    ##  Description  ##
+    
+    Here, we repeat the simulation in Exp #17, consider the tim instants before 
+    recall and instability, freeze the network weights (along with ST-STDP 
+    weights), to observe the nature of instability.
+    
+    ##  Procedure  ##
+    
+    1.  Setup the Experiment by running WorkingMemSetup.py
+    2.  If OutputSparse5Hours.mat has not been generated, run Generate5HrsSimData.m
+    3.  Run FrozenWeightsPlot.m
+    
+    ##  Simulation Parameters  ##
+    
+    Same as Exp #17 except for the following ST-STDP Parameters set to freeze 
+    weights.
+    
+        InputStruct.ST_STDP_DecayWithTime       = single(1);
+        InputStruct.ST_STDP_EffectMaxCausal     = single(0);
+        InputStruct.ST_STDP_EffectMaxAntiCausal = single(0);
+    
+    ##  Observations  ##
+    
+    1.  The intensity in the response appears to be maintained in the abscence of 
+        any weight change.
+    
+    2.  There appears to be a slight correlation between the response to memory 
+        and the spiking due to recollection. Im not yet sure if this recollection 
+        is sufficient, the only evidence in support of this appears to the be the 
+        sharp peaky appearence of correlations as opposed to a broad correlation 
+        which would be characteristic of noise.
+    
+    3.  During Instablity the spiking pattern bears no obvious statistical
+        consistency except some weak consistency in the time-Direction. In this case, I am even lesser sure if the recall correlations are of any value because of the increase intnsity of spiking during instability coupled with the non-spiky nature of correlations
+    
+    ##  Inferences  ##
+    
+    1.  From the limited evidence above it does appear that at least in the recall 
+        before instability state, the non-stimulated spiking has some correlation 
+        to the response to the input pattern. However, this merits further investigation in terms of whether the synapses involved in the spike trains correlate or not.
 
 ## End of Experiment 18 ############################################################################
 
