@@ -3,8 +3,52 @@ NumberofEntries: 4
 ExpEntries: 
 
 - ID         : 17
-  Title      : 
+  Title      : Basic Unstable Working Memory
   Description: |-2
+    ##  Description  ##
+    
+    This experiment is the one that seems to follow Izhikevich's description the
+    closest and has parameters adjusted to give the closest result (before blowing
+    up).
+    
+    ##  Procedure  ##
+    
+    1.  Setup the Experiment by running WorkingMemSetup.py
+    2.  If OutputSparse5Hours.mat has not been generated, run Generate5HrsSimData.m
+    3.  Run ST_STDP_SpikePlot.m
+    
+    ##  Simulation Parameters  ##
+    
+    ###   ST-STDP Parameters   ###
+    
+        InputStruct.ST_STDP_MaxRelativeInc      = single(2);
+        InputStruct.ST_STDP_DecayWithTime       = single(exp(-1/5000));
+        InputStruct.ST_STDP_EffectDecay         = single(exp(-1/8));
+        InputStruct.ST_STDP_EffectMaxCausal     = single(0.16);
+        InputStruct.ST_STDP_EffectMaxAntiCausal = single(0.18);
+    
+    ###   LT-STDP Parameters   ###
+    
+        InputStruct.W0                          = single(0);
+    
+    ###   External Current Parameters   ###
+    
+        InputStruct.Iext.IExtAmplitude = single(30);
+        InputStruct.Iext.AvgRandSpikeFreq = single(0.3);
+        
+        % External Input Current Pattern
+        PatternStringArray = {
+            'from 0 onwards every 15s         '
+            '    from 0 to 1100ms every 110ms '
+            '        from 0 onwards generate 1'
+            };
+        InputStruct.Iext.IExtPattern = getEmptyIExtPattern();
+        InputStruct.Iext.IExtPattern = getIExtPatternFromString(PatternStringArray);
+        InputStruct.Iext.IExtPattern.NeuronPatterns = {uint32([1,60])};
+    
+    ###   Network Parameters   ###
+    
+        InputStruct.InitialState.Weight(InputStruct.NEnd > 800) = 8;
 
 ## End of Experiment 17 ############################################################################
 
