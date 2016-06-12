@@ -115,8 +115,30 @@ ExpEntries:
 ## End of Experiment 13 ############################################################################
 
 - ID         : 14
-  Title      : 
+  Title      : Viewing Sample Paths in the Izhik Dyn System
   Description: |-2
+    ##  Description  ##
+    
+    In this experiment we plot the paths traced from a variety of initial points 
+    to see how the simple Izhikevich model behaves.
+    
+    ##  Procedure  ##
+    
+    Run IzhikPathAnalysis.m
+    
+    ##  Observations  ##
+    
+    1.  We reinforce the observations of Exp #10 i.e we see that for certani U's 
+        spiking occurs for all V's.
+    
+    2.  We observe that all paths to steady state pass through some common curve.
+    
+    3.  We see that this curve is approximated well by the curve that is the 
+        solution to the equation `0.04V^2 + 5V + 140 - U = 0`.
+    
+    4.  Upon increasing the value of a, it is seen that this approximation becomes 
+        worse, infact for a = 1, the 'pass through some common curve' observation 
+        falls apart
 
 ## End of Experiment 14 ############################################################################
 
