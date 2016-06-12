@@ -1,4 +1,4 @@
-function [ UOut, VOut ] = getIzhikLineofConv(a, b, InitPoint, onemsbyTstep, Threshold)
+function [ UOut, VOut ] = getIzhikTrajectory(a, b, InitPoint, onemsbyTstep, Threshold)
 %GETIZHIKLINEOFCONV Returns the Line of Convergence for a given Izhikevich
 %Neuron
 %   
