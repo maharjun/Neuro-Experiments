@@ -88,13 +88,18 @@ ExpEntries:
         which would be characteristic of noise.
     
     3.  During Instablity the spiking pattern bears no obvious statistical
-        consistency except some weak consistency in the time-Direction. In this case, I am even lesser sure if the recall correlations are of any value because of the increase intnsity of spiking during instability coupled with the non-spiky nature of correlations
+        consistency except some weak consistency in the time-Direction. In this 
+        case, I am even lesser sure if the recall correlations are of any value 
+        because of the increase intnsity of spiking during instability coupled 
+        with the non-spiky nature of correlations
     
     ##  Inferences  ##
     
     1.  From the limited evidence above it does appear that at least in the recall 
         before instability state, the non-stimulated spiking has some correlation 
-        to the response to the input pattern. However, this merits further investigation in terms of whether the synapses involved in the spike trains correlate or not.
+        to the response to the input pattern. However, this merits further 
+        investigation in terms of whether the synapses involved in the spike 
+        trains correlate or not.
 
 ## End of Experiment 18 ############################################################################
 
