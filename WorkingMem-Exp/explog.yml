@@ -3,8 +3,13 @@ NumberofEntries: 4
 ExpEntries: 
 
 - ID         : 17
-  Title      : Basic Unstable Working Memory
+  Title      : Basic Unstable Working Memory (INVALID)
   Description: |-2
+    ##  Why INVALID?  ##
+    
+    The WorkingMem Simulation used by this experiment is INCORRECT. The example 
+    chosen correspondingly is hence also incorrect.
+    
     ##  Description  ##
     
     This experiment is the one that seems to follow Izhikevich's description the
@@ -53,8 +58,13 @@ ExpEntries:
 ## End of Experiment 17 ############################################################################
 
 - ID         : 18
-  Title      : Analyze unstable dynamics by Freezing Weights
+  Title      : Analyze unstable dynamics by Freezing Weights (INVALID)
   Description: |-2
+    ##  Why INVALID? ##
+    
+    The WorkingMem Simulation used by this experiment is INCORRECT. The example 
+    chosen correspondingly is hence also incorrect.
+    
     ##  Description  ##
     
     Here, we repeat the simulation in Exp #17, consider the tim instants before 
@@ -104,8 +114,85 @@ ExpEntries:
 ## End of Experiment 18 ############################################################################
 
 - ID         : 19
-  Title      : 
+  Title      : Analyze unstable dynamics by Freezing Weights
   Description: |-2
+    ##  Description  ##
+    
+    Here, we use the corrected WorkingMem code and repeat the simulation in Exp #17
+    with a correspondingly altered example to show spontaneous recall and the
+    following instability, Plot SpikeList near instability, consider the time
+    instants before recall and instability, freeze the network weights (along with ST-STDP weights), to observe the nature of instability.
+    
+    ##  Procedure  ##
+    
+    1.  Setup the Experiment by running WorkingMemSetup.py
+    2.  If OutputSparse5Hours.mat has not been generated, run Generate5HrsSimData.m
+    3.  Run FrozenWeightsPlot.m
+    
+    ##  Simulation Parameters  ##
+    
+    ###   ST-STDP Parameters   ###
+    
+        InputStruct.ST_STDP_MaxRelativeInc      = single(2);
+        InputStruct.ST_STDP_DecayWithTime       = single(exp(-1/5000));
+        InputStruct.ST_STDP_EffectDecay         = single(exp(-1/8));
+        InputStruct.ST_STDP_EffectMaxCausal     = single(0.32);
+        InputStruct.ST_STDP_EffectMaxAntiCausal = single(0.4);
+    
+    When freezing weights, the following ST-STDP Parameters are set.
+    
+        InputStruct.ST_STDP_DecayWithTime       = single(1);
+        InputStruct.ST_STDP_EffectMaxCausal     = single(0);
+        InputStruct.ST_STDP_EffectMaxAntiCausal = single(0);
+    
+    ###   LT-STDP Parameters   ###
+    
+        InputStruct.W0                          = single(0);
+    
+    ###   External Current Parameters   ###
+    
+        InputStruct.Iext.IExtAmplitude    = single(30);
+        InputStruct.Iext.IRandAmplitude   = single(30);
+        InputStruct.Iext.AvgRandSpikeFreq = single(0.3);
+        
+        % External Input Current Pattern
+        PatternStringArray = {
+            'from 0 onwards every 15s         '
+            '    from 0 to 1100ms every 110ms '
+            '        from 0 onwards generate 1'
+            };
+        InputStruct.Iext.IExtPattern = getEmptyIExtPattern();
+        InputStruct.Iext.IExtPattern = getIExtPatternFromString(PatternStringArray);
+        InputStruct.Iext.IExtPattern.NeuronPatterns = {uint32([1,60])};
+    
+    ###   Network Parameters   ###
+    
+        InputStruct.InitialState.Weight(InputStruct.NEnd > 800) = 8;
+    
+    ##  Observations  ##
+    
+    1.  The intensity in the response appears to be maintained in the abscence of 
+        any weight change.
+    
+    2.  There appears to be a slight correlation between the response to memory 
+        and the spiking due to recollection. Im not yet sure if this recollection 
+        is sufficient, the only evidence in support of this appears to the be the 
+        sharp peaky appearence of correlations as opposed to a broad correlation 
+        which would be characteristic of noise.
+    
+    3.  During Instablity the spiking pattern bears no obvious statistical
+        consistency except some weak consistency in the time-Direction. In this 
+        case, I am even lesser sure if the recall correlations are of any value 
+        because of the increase intnsity of spiking during instability coupled 
+        with the non-spiky nature of correlations
+    
+    ##  Inferences  ##
+    
+    1.  From the limited evidence above it does appear that at least in the recall 
+        before instability state, the non-stimulated spiking has some correlation 
+        to the response to the input pattern. However, this merits further 
+        investigation in terms of whether the synapses involved in the spike 
+        trains correlate or not.
 
 ## End of Experiment 19 ############################################################################
 
